@@ -12,5 +12,9 @@ public class App{
         todoList.addTask("Apprendre Java !");
         
         System.out.println(todoList.displayTasksList());
+        todoList.deleteTask(2);
+        System.out.println(todoList.displayTasksList());
+        todoList.checkStatut(0);
+        System.out.println(todoList.displayTasksList());
     }
 }
