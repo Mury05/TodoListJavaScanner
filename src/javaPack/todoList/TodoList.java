@@ -16,9 +16,11 @@ public class TodoList {
     }
 
     public void addTask(String description) {
-        Task task = new Task(description);
-        tasksList.add(task);
-        System.out.println("Tâche ajoutée avec succès !");
+        if (description.trim() != "") {
+            Task task = new Task(description);
+            tasksList.add(task);
+            System.out.println("Tâche ajoutée avec succès !");
+        }else System.out.println("Entrez une description valide !");
     }
 
     public void deleteTask(int id) {
@@ -67,6 +69,21 @@ public class TodoList {
         if (checkTask != null && editId != -1) {
             checkTask.setDescription(newDescription);
             System.out.println("Tâche modifiée avec succès !");
+
+        } else
+        System.out.println("Tâche inexistante !");
+    }
+    public void affTask(int id){
+        Task checkTask = null;
+        int editId = -1;
+        for (Task task : tasksList) {
+            if (task.getId() == id) {
+                checkTask = task;
+                editId = tasksList.indexOf(checkTask);
+            }
+        }
+        if (checkTask != null && editId != -1) {
+            System.out.println(checkTask.getDescription());
 
         } else
         System.out.println("Tâche inexistante !");
